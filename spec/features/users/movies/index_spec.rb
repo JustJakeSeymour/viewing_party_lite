@@ -25,7 +25,7 @@ RSpec.describe "Movies Results (Index) Page" do
       expect(current_path).to eq("/users/#{@user.id}/movies")
       
       expect(page.status_code).to eq 200
-      expect(page).to have_content("The LEGO Movie")
+      expect(page).to have_content("The Lego Movie")
     end
   end
 end
