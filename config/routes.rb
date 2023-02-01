@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :create] do
     resources :discover, only: [:index], controller: "users/discover"
+    post "/movies", to: "users/movies#index"
+    post "/movies", to: "users/movies#keyword"
     resources :movies, only: [:index, :show], controller: "users/movies"
-    get "/movies?q=top_rated", to: "movies#top_rated"
-    get "/movies?q=keyword", to: "movies#keyword"
   end
   # namespace :users do
   # end
