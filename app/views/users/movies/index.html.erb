@@ -1,1 +1,6 @@
 <h3>Movie Results</h3>
+
+<%= @movies.each do |movie| %>
+<div id='left'><%= movie[:title] %></div>
+<div id='right'><%= movie[:vote_average] %></div>
+<% end %>

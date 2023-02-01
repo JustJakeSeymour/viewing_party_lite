@@ -9,6 +9,4 @@ Rails.application.routes.draw do
     post "/movies", to: "users/movies#keyword"
     resources :movies, only: [:index, :show], controller: "users/movies"
   end
-  # namespace :users do
-  # end
 end
