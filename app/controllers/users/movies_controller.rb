@@ -1,9 +1,9 @@
 class Users::MoviesController < ApplicationController
   def index
     if params[:q] == "top_rated"
-      @movies = MoviesFacade.top_rated
+      @movies = Users::MoviesFacade.top_rated
     elsif params[:q] == "keyword"
-      @movies = MoviesFacade.keyword_search(params[:keyword])
+      @movies = Users::MoviesFacade.keyword_search(params[:keyword])
     end
   end
   
