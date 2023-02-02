@@ -2,6 +2,7 @@ class TheMovieDbService
   def self.get_movie_data(path)
     response = conn.get(path)
     json = parse(response)
+    require 'pry'; binding.pry
     json[:results]
   end
   
