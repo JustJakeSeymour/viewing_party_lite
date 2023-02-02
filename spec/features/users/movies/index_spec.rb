@@ -30,12 +30,24 @@ RSpec.describe "Movies Results (Index) Page" do
   describe "display movies keyword search" do
     it "happy path" do
       fill_in(:keyword, with: "Lego")
-
+      
       click_button("Find Movies")
       expect(current_path).to eq("/users/#{@user.id}/movies")
       
       expect(page.status_code).to eq 200
       expect(page).to have_content("The Lego Movie")
+    end
+    
+    it "links to movie show" do
+      fill_in(:keyword, with: "Lego")
+      
+      click_button("Find Movies")
+  
+      expect(page).to have_link("The Lego Movie")
+  
+      click_link("The Lego Movie")
+  
+      expect(current_path).to eq("/users/#{@user.id}/movies/137106")
     end
   end
 end
