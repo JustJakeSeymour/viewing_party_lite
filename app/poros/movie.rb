@@ -21,6 +21,7 @@ class Movie
 
   def sanitize_genres(data)
     return if data.nil?
+
     data.map do |genre|
       genre[:name]
     end
@@ -28,16 +29,18 @@ class Movie
 
   def sanitize_cast(data)
     return if data.nil?
-      data[:cast][0..9].map do |cast|
-        { name: cast[:name], character: cast[:character] }
-      end
+
+    data[:cast][0..9].map do |cast|
+      { name: cast[:name], character: cast[:character] }
+    end
   end
 
   def sanitize_reviews(data)
     return if data.nil?
-      data[:results].map do |review|
-        { author: review[:author], content: review[:content] }
-      end
+
+    data[:results].map do |review|
+      { author: review[:author], content: review[:content] }
+    end
   end
 
   def review_count

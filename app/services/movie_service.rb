@@ -1,6 +1,6 @@
 class MovieService
   def self.top_rated_movies
-    response = conn.get("movie/top_rated")
+    response = conn.get('movie/top_rated')
     parse_body(response)
   end
 
