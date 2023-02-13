@@ -34,10 +34,17 @@ RSpec.describe "User Login Page" do
         expect(current_path).to eq("/users/#{@user.id}")
       end
     end
-
+    
     context "user story 4 - sad path" do
       it "log in sad path" do
-
+        visit login_path
+        
+        fill_in("Email", with: "valid@email.com")
+        fill_in("Password", with: "WrongPassword")
+    
+        click_button("Log In")
+    
+        expect(page).to have_content("Password invalid")
       end
     end
   end
