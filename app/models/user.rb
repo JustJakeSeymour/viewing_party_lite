@@ -6,6 +6,9 @@ class User < ApplicationRecord
   
   validates_presence_of :name
   validates :email, presence: true, uniqueness: true
+  validates_presence_of :password
+
+  has_secure_password
 
   def self.all_except(user)
     where.not(id: user)

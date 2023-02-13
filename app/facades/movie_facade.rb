@@ -9,14 +9,14 @@ class MovieFacade
     movies_array(json)
   end
 
+  def self.movie_details(movie_id)
+    json = MovieService.detail_search(movie_id)
+    Movie.new(json)
+  end
+  
   def self.movies_array(json)
     json.map do |data|
       Movie.new(data)
     end
-  end
-
-  def self.movie_details(movie_id)
-    json = MovieService.detail_search(movie_id)
-    Movie.new(json)
   end
 end
